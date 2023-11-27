@@ -55,14 +55,16 @@
 </aside>
 
 <main>
-  <HighlightSvelte
-    code={code({
-      noOuterClosing,
-      hoverOpen,
-      floating: $floating,
-      transition: !$no_transition
-    }).trim()}
-  />
+  <div style:overflow="auto">
+    <HighlightSvelte
+      code={code({
+        noOuterClosing,
+        hoverOpen,
+        floating: $floating,
+        transition: !$no_transition
+      }).trim()}
+    />
+  </div>
   <div style:--section-bg={$theme === 'dark' ? '#222' : 'whitesmoke'}>
     <Menu
       let:state
@@ -150,6 +152,7 @@
   }
   aside {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
   }
