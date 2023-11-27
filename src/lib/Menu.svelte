@@ -15,9 +15,11 @@
 
   export let onClose: (() => unknown) | undefined = undefined
 
-  let state: 'OPENING' | 'OPENED' | 'CLOSING' | 'CLOSED' = initialOpened
-    ? 'OPENED'
-    : 'CLOSED'
+  let state = (initialOpened ? 'OPENED' : 'CLOSED') as
+    | 'OPENING'
+    | 'OPENED'
+    | 'CLOSING'
+    | 'CLOSED'
 
   let controller: AbortController | undefined = undefined
 
