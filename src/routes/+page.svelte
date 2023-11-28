@@ -5,7 +5,7 @@
   import { ToggleSwitch } from '@jill64/svelte-input'
   import { HighlightSvelte } from 'svelte-highlight'
   import { define } from 'svelte-qparam'
-  import { boolean } from 'svelte-qparam/converter'
+  import { boolean } from 'svelte-qparam/serde'
   import { slide } from 'svelte/transition'
   import { code } from './code'
 
