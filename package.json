@@ -68,6 +68,6 @@
     "vite": "5.0.4"
   },
   "dependencies": {
-    "nanoid": "5.0.3"
+    "nanoid": "5.0.4"
   }
 }
