@@ -1,15 +1,15 @@
 <script lang="ts">
   import { page } from '$app/stores'
   import { Menu } from '$lib'
-  import { theme } from '@jill64/svelte-dark-theme'
-  import { ToggleSwitch } from '@jill64/svelte-input'
+  import { theme } from '@jill64/svelte-suite'
+  import { ToggleSwitch } from '@jill64/svelte-suite/input'
   import { HighlightSvelte } from 'svelte-highlight'
-  import { define } from 'svelte-qparam'
-  import { boolean } from 'svelte-qparam/serde'
+  import { defineQparam } from '@jill64/svelte-suite'
+  import { boolean } from '@jill64/svelte-suite/serde'
   import { slide } from 'svelte/transition'
   import { code } from './code'
 
-  const extract = define({
+  const extract = defineQparam({
     no_outer_closing: boolean,
     hover_open: boolean,
     floating: boolean,

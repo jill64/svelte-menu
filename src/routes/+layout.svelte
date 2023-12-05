@@ -1,15 +1,10 @@
 <script lang="ts">
-  import { FlipButton, ThemeManager, theme } from '@jill64/svelte-dark-theme'
-  import github from 'svelte-highlight/styles/github'
-  import githubDark from 'svelte-highlight/styles/github-dark'
+  import { FlipButton, ThemeManager, theme } from '@jill64/svelte-suite'
+  import { HighlightSwitcher } from 'svelte-highlight-switcher'
   import GitHubLogo from './GitHubLogo.svelte'
 </script>
 
-<svelte:head>
-  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-  {@html $theme === 'dark' ? githubDark : github}
-</svelte:head>
-
+<HighlightSwitcher name={$theme === 'dark' ? 'githubDark' : 'github'} />
 <ThemeManager />
 
 <header>
