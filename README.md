@@ -8,10 +8,4 @@
 
 ## [Demo](https://svelte-menu.jill64.dev)
 
-## Installation
-
-```sh
-npm i @jill64/svelte-menu
-```
-
 <!----- END GHOST DOCS HEADER ----->
