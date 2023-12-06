@@ -58,7 +58,7 @@
     "svelte-highlight": "7.4.2",
     "svelte-highlight-switcher": "0.0.1",
     "typescript": "5.3.2",
-    "vite": "5.0.5"
+    "vite": "5.0.6"
   },
   "dependencies": {
     "nanoid": "5.0.4"
