@@ -5,7 +5,12 @@
   "main": "dist/index.js",
   "type": "module",
   "license": "MIT",
-  "author": "jill64 <intents.turrets0h@icloud.com> (https://github.com/jill64)",
+  "author": {
+    "name": "jill64",
+    "email": "143883742+jill64@users.noreply.github.com",
+    "url": "https://github.com/jill64",
+    "image": "https://avatars.githubusercontent.com/u/143883742?v=4"
+  },
   "bugs": "https://github.com/jill64/svelte-menu/issues",
   "homepage": "https://github.com/jill64/svelte-menu#readme",
   "files": [
@@ -20,7 +25,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jill64/svelte-menu.git"
+    "url": "https://github.com/jill64/svelte-menu.git",
+    "image": "https://opengraph.githubassets.com/8841d33f2dbb3ec45a6ab2f0f63bb6708282043ab18d3a3c42747e7153babfef/jill64/svelte-menu"
   },
   "publishConfig": {
     "access": "public"
@@ -53,7 +59,7 @@
     "@jill64/svelte-suite": "1.0.3",
     "@playwright/test": "1.40.1",
     "@sveltejs/adapter-cloudflare": "2.3.4",
-    "@sveltejs/kit": "1.27.7",
+    "@sveltejs/kit": "1.28.0",
     "svelte": "4.2.8",
     "svelte-highlight": "7.4.2",
     "svelte-highlight-switcher": "1.0.0",
