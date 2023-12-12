@@ -21,7 +21,7 @@ devDependencies:
     specifier: 1.5.0
     version: 1.5.0(@sveltejs/kit@1.29.0)(svelte@4.2.8)
   '@jill64/svelte-input':
-    specifier: ^1.5.2
+    specifier: 1.5.2
     version: 1.5.2(svelte@4.2.8)
   '@jill64/universal-sanitizer':
     specifier: 1.0.0
@@ -39,7 +39,7 @@ devDependencies:
     specifier: 4.2.8
     version: 4.2.8
   svelte-qparam:
-    specifier: ^0.2.1
+    specifier: 0.2.1
     version: 0.2.1(@sveltejs/kit@1.29.0)(svelte@4.2.8)
   typescript:
     specifier: 5.3.3
@@ -1163,6 +1163,7 @@ packages:
   /@sveltejs/kit@1.29.0(svelte@4.2.8)(vite@5.0.7):
     resolution: {integrity: sha512-O+DvB67Ouha0pVKh0nRxr8QwZcls8h4knLoS6Sk1DhRLAuQzuM0FNnPNIhMHL1iP1LFeXd3P+bk+h2V07WSF5w==}
     engines: {node: ^16.14 || >=18}
+    hasBin: true
     requiresBuild: true
     peerDependencies:
       svelte: ^3.54.0 || ^4.0.0-next.0 || ^5.0.0-next.0
@@ -1872,6 +1873,7 @@ packages:
 
   /eslint-config-prettier@9.1.0(eslint@8.55.0):
     resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+    hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
     dependencies:
@@ -3235,6 +3237,7 @@ packages:
   /vite@5.0.7:
     resolution: {integrity: sha512-B4T4rJCDPihrQo2B+h1MbeGL/k/GMAHzhQ8S0LjQ142s6/+l3hHTT095ORvsshj4QCkoWu3Xtmob5mazvakaOw==}
     engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
     peerDependencies:
       '@types/node': ^18.0.0 || >=20.0.0
       less: '*'
