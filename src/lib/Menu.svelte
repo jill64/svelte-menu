@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { customAlphabet } from 'nanoid'
-
   export let Class = ''
   export let style = ''
   export let summaryClass = ''
@@ -72,9 +70,11 @@
 
   $: toggle = state === 'OPENED' || state === 'OPENING' ? close : open
 
-  const id = customAlphabet(
-    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-'
-  )(8)
+  const usable = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-'
+  const id = Array(8)
+    .fill(0)
+    .map(() => usable[Math.floor(Math.random() * usable.length)])
+    .join('')
 
   $: onClick = ({ target }: MouseEvent) => {
     if (!noOuterClosing && !(target as Element).closest(`#${id}`)) {
