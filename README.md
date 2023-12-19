@@ -9,3 +9,11 @@
 ## [Demo](https://svelte-menu.jill64.dev)
 
 <!----- END GHOST DOCS HEADER ----->
+
+<!----- BEGIN GHOST DOCS FOOTER ----->
+
+## License
+
+MIT
+
+<!----- END GHOST DOCS FOOTER ----->
