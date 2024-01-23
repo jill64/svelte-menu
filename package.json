@@ -1,7 +1,7 @@
 {
   "name": "@jill64/svelte-menu",
   "description": "📋 Functional Menu Component for Svelte",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "type": "module",
   "license": "MIT",
@@ -64,7 +64,7 @@
     "@sveltejs/adapter-cloudflare": "4.1.0",
     "@sveltejs/kit": "2.4.3",
     "svelte": "4.2.8",
-    "svelte-qparam": "1.0.8",
+    "svelte-qparam": "1.0.9",
     "typescript": "5.3.3",
     "vite": "5.0.12",
     "@sveltejs/vite-plugin-svelte": "3.0.1"
