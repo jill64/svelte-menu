@@ -105,8 +105,6 @@
   class={Class}
   {style}
 >
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <summary
     style={summaryStyle}
     class={summaryClass}
