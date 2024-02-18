@@ -122,6 +122,7 @@
     position: relative;
   }
   summary {
+    display: block;
     cursor: pointer;
   }
   summary::-webkit-details-marker {
