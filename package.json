@@ -1,7 +1,7 @@
 {
   "name": "@jill64/svelte-menu",
   "description": "📋 Functional Menu Component for Svelte",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "main": "dist/index.js",
   "type": "module",
   "license": "MIT",
@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/svelte-menu.git",
-    "image": "https://opengraph.githubassets.com/b273e2c9a53a11927fa7439a6e945524c3c895d3218c6aeb44f9c7cd05916f7b/jill64/svelte-menu"
+    "image": "https://opengraph.githubassets.com/b0bf92a20655e21036f496acb4aa6479dfe99c744f35766e00c3f93e47220743/jill64/svelte-menu"
   },
   "publishConfig": {
     "access": "public"
@@ -53,7 +53,7 @@
   },
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
-    "@jill64/eslint-config-svelte": "1.2.28",
+    "@jill64/eslint-config-svelte": "1.2.29",
     "@jill64/npm-demo-layout": "1.0.202",
     "@jill64/playwright-config": "2.3.0",
     "@jill64/prettier-config": "1.0.0",
