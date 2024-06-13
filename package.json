@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/svelte-menu.git",
-    "image": "https://opengraph.githubassets.com/47bf6705a73335326aef2fcd4e8c3c1d75540ef89736a7407a8a62a58690363a/jill64/svelte-menu"
+    "image": "https://opengraph.githubassets.com/a4ed59983b14423f650b2b142be870b8235d89464035937737d2901f64195c50/jill64/svelte-menu"
   },
   "publishConfig": {
     "access": "public"
@@ -66,7 +66,7 @@
     "svelte": "4.2.18",
     "svelte-qparam": "1.0.25",
     "typescript": "5.4.5",
-    "vite": "5.2.13",
+    "vite": "5.3.0",
     "@sveltejs/vite-plugin-svelte": "3.1.1"
   }
 }
