@@ -1,7 +1,7 @@
 {
   "name": "@jill64/svelte-menu",
   "description": "📋 Functional Menu Component for Svelte",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "main": "dist/index.js",
   "type": "module",
   "license": "MIT",
@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/svelte-menu.git",
-    "image": "https://opengraph.githubassets.com/23cf70f1a88220f56e65be3119af4b8e2bd10a7bb69c3d3af6f974850c395034/jill64/svelte-menu"
+    "image": "https://opengraph.githubassets.com/8d95631a5cb06afc6a4baa6382484a24c09ae78cc07b1270279fc036e7663c02/jill64/svelte-menu"
   },
   "publishConfig": {
     "access": "public"
@@ -60,7 +60,7 @@
     "@jill64/sentry-sveltekit-cloudflare": "1.7.14",
     "@jill64/svelte-input": "1.6.31",
     "@jill64/universal-sanitizer": "1.2.13",
-    "@playwright/test": "1.44.1",
+    "@playwright/test": "1.45.0",
     "@sveltejs/adapter-cloudflare": "4.4.0",
     "@sveltejs/kit": "2.5.17",
     "svelte": "4.2.18",
