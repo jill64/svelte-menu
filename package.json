@@ -66,7 +66,7 @@
     "svelte": "4.2.18",
     "svelte-qparam": "1.0.27",
     "typescript": "5.5.3",
-    "vite": "5.3.1",
+    "vite": "5.3.3",
     "@sveltejs/vite-plugin-svelte": "3.1.1"
   }
 }
