@@ -17,9 +17,6 @@ importers:
       '@jill64/playwright-config':
         specifier: 2.4.0
         version: 2.4.0(@playwright/test@1.45.3)
-      '@jill64/prettier-config':
-        specifier: 1.0.0
-        version: 1.0.0
       '@jill64/sentry-sveltekit-cloudflare':
         specifier: 1.7.16
         version: 1.7.16(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.197)(vite@5.3.5(@types/node@20.14.12)))(svelte@5.0.0-next.197)(vite@5.3.5(@types/node@20.14.12)))(svelte@5.0.0-next.197)
@@ -445,9 +442,6 @@ packages:
     resolution: {integrity: sha512-Gwp56wpXL74cLuKRNCLdOHs4QtJL5k1ArJrR4J6/IcoZRLB1+aW3gNwWIyXgrXyR26QMmXPk8hNYF4eSRsB8Tw==}
     peerDependencies:
       '@playwright/test': ^1.40.0
-
-  '@jill64/prettier-config@1.0.0':
-    resolution: {integrity: sha512-KuryQDStqkQ/zKR9Q7JXiW927m7SvwirQo6Oohss1Q9cRyYS2JOyhtcBavZnoEhH4pHJkaigfjUXA3em4n6egA==}
 
   '@jill64/sentry-sveltekit-cloudflare@1.7.16':
     resolution: {integrity: sha512-GSSBOPPsnHcpc8D8QoLb7zN9G5kF9CBQLqHd80Nn/sRvvSaFwcYss1aY01SM1qENEwcvMEzj9WFWzHA/zdF77A==}
@@ -2109,8 +2103,6 @@ snapshots:
   '@jill64/playwright-config@2.4.0(@playwright/test@1.45.3)':
     dependencies:
       '@playwright/test': 1.45.3
-
-  '@jill64/prettier-config@1.0.0': {}
 
   '@jill64/sentry-sveltekit-cloudflare@1.7.16(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.197)(vite@5.3.5(@types/node@20.14.12)))(svelte@5.0.0-next.197)(vite@5.3.5(@types/node@20.14.12)))(svelte@5.0.0-next.197)':
     dependencies:
