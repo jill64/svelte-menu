@@ -13,16 +13,21 @@ export const code = ({
   import { Menu } from '@jill64/svelte-menu'
 </script>
 
+{#snippet button(state)}
+  <h2>Menu - {state}</h2>
+{/snippet}
+
+{#snippet menu(close)}
+  <section ${transition ? 'transition:slide ' : ''}>
+    <!-- ... -->
+  </section>
+{/snippet}
+
 <Menu let:state ${noOuterClosing ? 'noOuterClosing ' : ''}${
   hoverOpen ? 'hoverOpen ' : ''
 }${transition ? '' : 'duration={0} '}${
   floating ? 'style="display: inline;" ' : ''
-}>
-  <h2>Menu - {state}</h2>
-  <section slot="contents" let:close ${transition ? 'transition:slide ' : ''}>
-    <!-- ... -->
-  </section>
-</Menu>
+} {button} {menu} />
 ${
   floating
     ? /*html*/ `
