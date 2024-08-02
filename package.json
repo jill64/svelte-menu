@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jill64/svelte-menu.git",
-    "image": "https://opengraph.githubassets.com/5372be14e3ff4ecae58c9be8cfd9d969b7cf86477b75b00c5f53bbebd9fcbbaa/jill64/svelte-menu"
+    "image": "https://opengraph.githubassets.com/f1574fe7884616bcab4238f898cbe5a99d4f3d8d9783202a8c46123d296b893a/jill64/svelte-menu"
   },
   "publishConfig": {
     "access": "public"
