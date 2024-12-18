@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/svelte-menu.git",
-    "image": "https://opengraph.githubassets.com/11d1cce4b3dfb0280a0ba5631f24f5861d39a52d8aff8aefc7b6baa91cf92649/jill64/svelte-menu"
+    "image": "https://opengraph.githubassets.com/74402052ad264927742c0992167013a4e70cd60ab485c6f795f21522a57d03d8/jill64/svelte-menu"
   },
   "publishConfig": {
     "access": "public"
@@ -59,7 +59,7 @@
     "@jill64/prettier-config": "1.0.0",
     "@jill64/sentry-sveltekit-cloudflare": "1.7.16",
     "@jill64/svelte-input": "1.6.39",
-    "@jill64/universal-sanitizer": "1.3.4",
+    "@jill64/universal-sanitizer": "1.3.5",
     "@playwright/test": "1.49.1",
     "@sveltejs/adapter-cloudflare": "4.8.0",
     "@sveltejs/kit": "2.8.3",
