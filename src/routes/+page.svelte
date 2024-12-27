@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
   import { Menu } from '$lib'
-  import { ToggleSwitch } from '@jill64/svelte-input'
   import { theme } from '@jill64/npm-demo-layout'
   import { HighlightSvelte } from '@jill64/npm-demo-layout/highlight'
+  import { ToggleSwitch } from '@jill64/svelte-input'
   import { define } from 'svelte-qparam'
   import { boolean } from 'svelte-qparam/serde'
   import { slide } from 'svelte/transition'
@@ -16,38 +16,37 @@
     no_transition: boolean
   })
 
-  $: ({ qparams } = extract($page.url))
-  $: ({ no_outer_closing, hover_open, floating, no_transition } = qparams)
+  let { qparams: q } = $derived(extract(page.url))
 
-  $: noOuterClosing = $no_outer_closing
-  $: hoverOpen = $hover_open
-  $: position = $floating ? 'absolute' : 'static'
-  $: top = $floating ? '0' : 'auto'
-  $: left = $floating ? '100%' : 'auto'
-  $: duration = $no_transition ? 0 : 400
-  $: slideParam = { duration }
+  let noOuterClosing = $derived(q.no_outer_closing)
+  let hoverOpen = $derived(q.hover_open)
+  let position = $derived(q.floating ? 'absolute' : 'static')
+  let top = $derived(q.floating ? '0' : 'auto')
+  let left = $derived(q.floating ? '100%' : 'auto')
+  let duration = $derived(q.no_transition ? 0 : 400)
+  let slideParam = $derived({ duration })
 </script>
 
 <aside>
   <ToggleSwitch
-    value={!$no_outer_closing}
+    value={!q.no_outer_closing}
     onChange={(x) => {
-      $no_outer_closing = !x
+      q.no_outer_closing = !x
     }}
-    disabled={$hover_open}
+    disabled={q.hover_open}
   >
     <span style:margin-left="0.5rem"> Outer Closing</span>
   </ToggleSwitch>
-  <ToggleSwitch bind:value={$hover_open}>
+  <ToggleSwitch bind:value={q.hover_open}>
     <span style:margin-left="0.5rem">Hover Open</span>
   </ToggleSwitch>
-  <ToggleSwitch bind:value={$floating}>
+  <ToggleSwitch bind:value={q.floating}>
     <span style:margin-left="0.5rem">Floating</span>
   </ToggleSwitch>
   <ToggleSwitch
-    value={!$no_transition}
+    value={!q.no_transition}
     onChange={(x) => {
-      $no_transition = !x
+      q.no_transition = !x
     }}
   >
     <span style:margin-left="0.5rem">Transition</span>
@@ -60,72 +59,79 @@
       code={code({
         noOuterClosing,
         hoverOpen,
-        floating: $floating,
-        transition: !$no_transition
+        floating: q.floating,
+        transition: !q.no_transition
       }).trim()}
     />
   </div>
   <div style:--section-bg={$theme === 'dark' ? '#222' : 'whitesmoke'}>
     <Menu
-      let:state
       {noOuterClosing}
       {duration}
       {hoverOpen}
-      style={$floating ? 'display: inline;' : ''}
+      style={q.floating ? 'display: inline;' : ''}
     >
-      <h2>Menu - {state}</h2>
-      <section
-        slot="contents"
-        style:position
-        style:top
-        style:left
-        let:close
-        transition:slide={slideParam}
-      >
-        <Menu {noOuterClosing} {duration} {hoverOpen}>
-          <h3>Section1</h3>
-          <section
-            slot="contents"
-            style:position
-            style:top
-            style:left
-            let:close
-            transition:slide={slideParam}
-          >
-            <p>Contents1</p>
-            <button on:click={close}>Close1</button>
-          </section>
-        </Menu>
-        <Menu {noOuterClosing} {duration} {hoverOpen}>
-          <h3>Section2</h3>
-          <section
-            slot="contents"
-            style:position
-            style:top
-            style:left
-            let:close
-            transition:slide={slideParam}
-          >
-            <p>Contents2</p>
-            <button on:click={close}>Close2</button>
-          </section>
-        </Menu>
-        <Menu {noOuterClosing} {duration} {hoverOpen}>
-          <h3>Section3</h3>
-          <section
-            slot="contents"
-            style:position
-            style:top
-            style:left
-            let:close
-            transition:slide={slideParam}
-          >
-            <p>Contents3</p>
-            <button on:click={close}>Close3</button>
-          </section>
-        </Menu>
-        <button on:click={close}>Close</button>
-      </section>
+      {#snippet button(phase)}
+        <h2>Menu - {phase}</h2>
+      {/snippet}
+      {#snippet contents(close)}
+        <section
+          style:position
+          style:top
+          style:left
+          transition:slide={slideParam}
+        >
+          <Menu {noOuterClosing} {duration} {hoverOpen}>
+            {#snippet button()}
+              <h3>Section1</h3>
+            {/snippet}
+            {#snippet contents(close)}
+              <section
+                style:position
+                style:top
+                style:left
+                transition:slide={slideParam}
+              >
+                <p>Contents1</p>
+                <button onclick={close}>Close1</button>
+              </section>
+            {/snippet}
+          </Menu>
+          <Menu {noOuterClosing} {duration} {hoverOpen}>
+            {#snippet button()}
+              <h3>Section2</h3>
+            {/snippet}
+            {#snippet contents(close)}
+              <section
+                style:position
+                style:top
+                style:left
+                transition:slide={slideParam}
+              >
+                <p>Contents2</p>
+                <button onclick={close}>Close2</button>
+              </section>
+            {/snippet}
+          </Menu>
+          <Menu {noOuterClosing} {duration} {hoverOpen}>
+            {#snippet button()}
+              <h3>Section3</h3>
+            {/snippet}
+            {#snippet contents(close)}
+              <section
+                style:position
+                style:top
+                style:left
+                transition:slide={slideParam}
+              >
+                <p>Contents3</p>
+                <button onclick={close}>Close3</button>
+              </section>
+            {/snippet}
+          </Menu>
+          <button onclick={close}>Close</button>
+        </section>
+      {/snippet}
     </Menu>
   </div>
 </main>

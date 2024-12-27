@@ -1,32 +1,47 @@
 <script lang="ts">
-  export let Class = ''
-  export let style = ''
-  export let summaryClass = ''
-  export let summaryStyle = ''
-  export let initialOpened = false
-  export let duration = 400
-  export let noOuterClosing = false
-  export let hoverOpen = false
+  import type { Snippet } from 'svelte'
+    import { preventDefault } from 'svelte/legacy'
 
-  export let onOpen: ((close: () => Promise<void>) => unknown) | undefined =
-    undefined
+  let {
+    Class = '',
+    style = '',
+    summaryClass = '',
+    summaryStyle = '',
+    initialOpened = false,
+    duration = 400,
+    noOuterClosing = false,
+    hoverOpen = false,
+    onOpen = undefined,
+    onClose = undefined,
+    button,
+    contents
+  }: {
+    Class?: string
+    style?: string
+    summaryClass?: string
+    summaryStyle?: string
+    initialOpened?: boolean
+    duration?: number
+    noOuterClosing?: boolean
+    hoverOpen?: boolean
+    onOpen?: (close: () => unknown) => Promise<void>
+    onClose?: () => unknown
+    button: Snippet<[Phase]>
+    contents: Snippet<[typeof close]>
+  } = $props()
 
-  export let onClose: (() => unknown) | undefined = undefined
+  type Phase = 'OPENING' | 'OPENED' | 'CLOSING' | 'CLOSED'
 
-  let state = (initialOpened ? 'OPENED' : 'CLOSED') as
-    | 'OPENING'
-    | 'OPENED'
-    | 'CLOSING'
-    | 'CLOSED'
+  let phase = $state<Phase>(initialOpened ? 'OPENED' : 'CLOSED')
 
   let controller: AbortController | undefined = undefined
 
-  $: close = async () => {
-    if (state === 'CLOSED' || state === 'CLOSING') {
+  const close = async () => {
+    if (phase === 'CLOSED' || phase === 'CLOSING') {
       return
     }
 
-    state = 'CLOSING'
+    phase = 'CLOSING'
 
     controller?.abort()
     controller = new AbortController()
@@ -34,19 +49,19 @@
     onClose?.()
 
     const timerID = setTimeout(() => {
-      state = 'CLOSED'
+      phase = 'CLOSED'
       controller = undefined
     }, duration)
 
     controller.signal.onabort = () => clearTimeout(timerID)
   }
 
-  $: open = async () => {
-    if (state === 'OPENED' || state === 'OPENING') {
+  const open = async () => {
+    if (phase === 'OPENED' || phase === 'OPENING') {
       return
     }
 
-    state = 'OPENING'
+    phase = 'OPENING'
 
     controller?.abort()
     controller = new AbortController()
@@ -54,7 +69,7 @@
     onOpen?.(close)
 
     const timerID = setTimeout(() => {
-      state = 'OPENED'
+      phase = 'OPENED'
       controller = undefined
     }, duration)
 
@@ -63,12 +78,16 @@
 
   let initialized = false
 
-  $: if (!initialized && initialOpened && close) {
-    onOpen?.(close)
-    initialized = true
-  }
+  $effect(() => {
+    if (!initialized && initialOpened && close) {
+      onOpen?.(close)
+      initialized = true
+    }
+  })
 
-  $: toggle = state === 'OPENED' || state === 'OPENING' ? close : open
+  let toggle = $derived(
+    phase === 'OPENED' || phase === 'OPENING' ? close : open
+  )
 
   const usable = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-'
   const id = Array(8)
@@ -76,44 +95,47 @@
     .map(() => usable[Math.floor(Math.random() * usable.length)])
     .join('')
 
-  $: onClick = ({ target }: MouseEvent) => {
+  const onClick = ({ target }: MouseEvent) => {
     if (!noOuterClosing && !(target as Element).closest(`#${id}`)) {
       close()
     }
   }
 
-  $: enter = () => {
+  const enter = () => {
     if (hoverOpen) {
       open()
     }
   }
 
-  $: leave = () => {
+  const leave = () => {
     if (hoverOpen) {
       close()
     }
   }
 </script>
 
-<svelte:window on:click={onClick} />
+<svelte:window onclick={onClick} />
 
 <details
   {id}
-  open={state !== 'CLOSED'}
-  on:mouseenter={enter}
-  on:mouseleave={leave}
+  open={phase !== 'CLOSED'}
+  onmouseenter={enter}
+  onmouseleave={leave}
   class={Class}
   {style}
 >
   <summary
     style={summaryStyle}
     class={summaryClass}
-    on:click|preventDefault={toggle}
+    onclick={(e) => {
+      e.preventDefault()
+      toggle()
+    }}
   >
-    <slot {state} />
+    {@render button(phase)}
   </summary>
-  {#if state === 'OPENED' || state === 'OPENING'}
-    <slot name="contents" {close} />
+  {#if phase === 'OPENED' || phase === 'OPENING'}
+    {@render contents(close)}
   {/if}
 </details>
 
