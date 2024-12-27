@@ -18,10 +18,17 @@ export const code = ({
 }${transition ? '' : 'duration={0} '}${
   floating ? 'style="display: inline;" ' : ''
 }>
-  <h2>Menu - {state}</h2>
-  <section slot="contents" let:close ${transition ? 'transition:slide ' : ''}>
-    <!-- ... -->
-  </section>
+  {#snippet button(phase)}
+    <h2>Menu - {phase}</h2>
+  {/snippet}
+  {#snippet contents(close)}
+    <section ${transition ? 'transition:slide ' : ''}>
+      <!-- ... -->
+    </section>
+    <button onclick={close}>
+      Close
+    </button>
+  {/snippet}
 </Menu>
 ${
   floating
