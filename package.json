@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jill64/svelte-menu.git",
-    "image": "https://opengraph.githubassets.com/9b26aa3a987d8d002002681fc3d516d8f475d735a90273e8f25d7566d4b04f55/jill64/svelte-menu"
+    "image": "https://opengraph.githubassets.com/05e5f43714a717828e08e6a352bd9f2371a333865184606ef6c42df97cd66550/jill64/svelte-menu"
   },
   "publishConfig": {
     "access": "public"
@@ -34,6 +34,7 @@
   "keywords": [
     "accordion",
     "components",
+    "library",
     "menu",
     "svelte"
   ],
