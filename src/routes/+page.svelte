@@ -64,7 +64,7 @@
       }).trim()}
     />
   </div>
-  <div style:--section-bg={$theme === 'dark' ? '#222' : 'whitesmoke'}>
+  <div style:--section-bg={theme.isDark ? '#222' : 'whitesmoke'}>
     <Menu
       {noOuterClosing}
       {duration}
