@@ -47,11 +47,13 @@
 
     onClose?.()
 
+    // eslint-disable-next-line no-undef
     const timerID = setTimeout(() => {
       phase = 'CLOSED'
       controller = undefined
     }, duration)
 
+    // eslint-disable-next-line no-undef
     controller.signal.onabort = () => clearTimeout(timerID)
   }
 
@@ -67,11 +69,13 @@
 
     onOpen?.(close)
 
+    // eslint-disable-next-line no-undef
     const timerID = setTimeout(() => {
       phase = 'OPENED'
       controller = undefined
     }, duration)
 
+    // eslint-disable-next-line no-undef
     controller.signal.onabort = () => clearTimeout(timerID)
   }
 
