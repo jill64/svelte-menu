@@ -65,7 +65,7 @@
     "@sveltejs/kit": "2.20.2",
     "svelte": "5.23.0",
     "svelte-qparam": "2.1.2",
-    "@sveltejs/package": "2.3.10",
+    "@sveltejs/package": "2.3.11",
     "typescript": "5.8.2",
     "vite": "6.2.6",
     "eslint": "9.22.0",
